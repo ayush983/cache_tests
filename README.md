@@ -8,5 +8,4 @@ This module contains python codes to generate assembly files for testing the dat
 * Perform a load/store hit in the Fill-buffer
 * Perform a replacement on all sets.
 * Check if performance counters are correctly incremented.
-* 
 ## Test Logic
