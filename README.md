@@ -12,3 +12,6 @@ This module contains python codes to generate assembly files for testing the dat
 * ### uatg_cache_fillcache_01.py
      > * Clear the cache using fence operation.
      > * An arbitary value is loaded into t1
+     > * A loop is run for as many times as is the size of the cache
+     > * We do store operation inside each iteration of this loop,eventually filling up the cache
+     > * 
