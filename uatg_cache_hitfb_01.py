@@ -43,7 +43,7 @@ class uatg_cache_hitfb_01(IPlugin):
             asm_data+=f"\t.word 0x{val}\n"
 
 
-        asm='init:\n\tfence\n\tli t0, 501\n\tli t2,32\n'
+        asm='init:\n\tfence\n\tli t0, 501\n\tli t2,32\n\tla t1, rvtest_data\n'
         
         #fills the cache    
         asm+='fillc:'

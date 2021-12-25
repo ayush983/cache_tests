@@ -43,7 +43,7 @@ class uatg_cache_fillcache_01(IPlugin):
         	asm_data+=f"\t.word 0x{val}\n"
 
 
-        asm='init:\n\tfence\n\tli t0, 501\t\n'
+        asm='init:\n\tfence\n\tli t0, 501\n\tla t1, rvtest_data\t\n'
         
         asm+='fill:'
         for i in range(self._cache_size):

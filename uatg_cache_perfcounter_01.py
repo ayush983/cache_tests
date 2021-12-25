@@ -42,7 +42,7 @@ class uatg_cache_perfcounter_01(IPlugin):
         	asm_data+=f"\t.word 0x{val}\n"
 
 
-        asm=f'init:\n\tfence\n\tli t0, 501\n\tli t3,{self._cache_size}\t\n'
+        asm=f'init:\n\tfence\n\tli t0, 501\n\tli t3,{self._cache_size}\n\tla t1, rvtest_data\t\n'
         
         asm+='fill:'
         for i in range(self._cache_size):

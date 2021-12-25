@@ -43,7 +43,7 @@ class uatg_cache_fillbuffer_01(IPlugin):
         	asm_data+=f"\t.word 0x{val}\n"
 
 
-        asm='init:\n\tfence\n\tli t0, 501\t\n'
+        asm='init:\n\tfence\n\tli t0, 501\n\tla t1, rvtest_data\t\n'
         
         #fills the cache	
         asm+='fillc:'
@@ -51,7 +51,7 @@ class uatg_cache_fillbuffer_01(IPlugin):
 	        asm+=f'\n\tsw t0, 0(t1)\n\taddi t1, t1, {self._sets*self._block_size*self._word_size}\n'
         
         asm+='clearfb:'
-        for i in range(30):
+        for i in range(70):
             asm+='\n\tnop\n'
 
         asm+='fillfb:'
