@@ -46,7 +46,7 @@ class uatg_cache_perfcounter_01(IPlugin):
         
         asm+='fill:'
         for i in range(self._cache_size):
-	        asm+=f'\n\tsw t0, 0(t1)\n\taddi t1, t1, {self._sets*self._block_size*self._word_size}\n'
+	        asm+=f'\n\tlw t0, 0(t1)\n\taddi t1, t1, {self._sets*self._block_size*self._word_size}\n'
 
         #checking the number of write access to the cache
         asm+='cmp:'
@@ -58,7 +58,7 @@ class uatg_cache_perfcounter_01(IPlugin):
         #creating hits
         asm+='hits:'
         for i in range(self._cache_size):
-            asm+=f'\n\tsw t0, 0(t1)\n\taddi t1, t1, {self._sets*self._block_size*self._word_size}\n'
+            asm+=f'\n\tlw t0, 0(t1)\n\taddi t1, t1, {self._sets*self._block_size*self._word_size}\n'
 
         #checking read access counter
         asm+='cmp:'

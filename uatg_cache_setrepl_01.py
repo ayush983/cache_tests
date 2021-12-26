@@ -48,7 +48,7 @@ class uatg_cache_setrepl_01(IPlugin):
         #fills the cache	
         asm+='fillc:'
         for i in range(self._cache_size):
-	        asm+=f'\n\tsw t0, 0(t1)\n\taddi t1, t1, {self._sets*self._block_size*self._word_size}\n'
+	        asm+=f'\n\tlw t0, 0(t1)\n\taddi t1, t1, {self._sets*self._block_size*self._word_size}\n'
         
         asm+='clearfb:'
         for i in range(30):
@@ -60,7 +60,7 @@ class uatg_cache_setrepl_01(IPlugin):
 
         asm+='repl:'
         for i in range(self._sets):
-            asm+=f'\n\tsw t0, 0(t1)\n\taddi t1, t1, {self._block_size*self._word_size}\n'
+            asm+=f'\n\tlw t0, 0(t1)\n\taddi t1, t1, {self._block_size*self._word_size}\n'
 
 
 

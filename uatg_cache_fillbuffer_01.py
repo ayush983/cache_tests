@@ -11,7 +11,7 @@ import random
 class uatg_cache_fillbuffer_01(IPlugin):
     """
     The test is used to fill the fill buffer. 
-    It uses consecutive store operations to do so.
+    It uses consecutive load operations to do so.
     """
 
     def __init__(self):
@@ -48,7 +48,7 @@ class uatg_cache_fillbuffer_01(IPlugin):
         #fills the cache	
         asm+='fillc:'
         for i in range(self._cache_size):
-	        asm+=f'\n\tsw t0, 0(t1)\n\taddi t1, t1, {self._sets*self._block_size*self._word_size}\n'
+	        asm+=f'\n\tlw t0, 0(t1)\n\taddi t1, t1, {self._sets*self._block_size*self._word_size}\n'
         
         asm+='clearfb:'
         for i in range(70):
@@ -56,7 +56,7 @@ class uatg_cache_fillbuffer_01(IPlugin):
 
         asm+='fillfb:'
         for i in range(self._fb_size+10):
-            asm+=f'\n\taddi t1, t1, 32\n\tsw t0, 0(t1)\n'
+            asm+=f'\n\taddi t1, t1, 32\n\tlw t0, 0(t1)\n'
 
 
         asm+='end:\n\tnop\n'

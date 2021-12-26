@@ -48,7 +48,7 @@ class uatg_cache_hitfb_01(IPlugin):
         #fills the cache    
         asm+='fillc:'
         for i in range(self._cache_size):
-            asm+=f'\n\tsw t0, 0(t1)\n\taddi t1, t1, {self._sets*self._block_size*self._word_size}\n'
+            asm+=f'\n\tlw t0, 0(t1)\n\taddi t1, t1, {self._sets*self._block_size*self._word_size}\n'
         
         #clear the fill buffer before starting to fill it 
         asm+='clearfb:'
@@ -58,12 +58,12 @@ class uatg_cache_hitfb_01(IPlugin):
         #fills the fb partially
         asm+='fillfb:'
         for i in range(self._fb_size//2):
-            asm+='\n\taddi t1, t1, 32\n\tsw t0, 0(t1)\n'
+            asm+='\n\taddi t1, t1, 32\n\tlw t0, 0(t1)\n'
 
         #creating hits on the fb
         asm+='hits:'
         for i in range(self._fb_size//2):
-            asm+='\n\tsw t0,0(t1)\n\tsub t1,t1,t2\n'
+            asm+='\n\tlw t0,0(t1)\n\tsub t1,t1,t2\n'
 
         asm+='end:\n\tnop\n'
 
