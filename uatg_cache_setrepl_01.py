@@ -56,7 +56,7 @@ class uatg_cache_setrepl_01(IPlugin):
 
         asm+='fillfb:'
         for i in range(self._fb_size+10):
-            asm+=f'\n\taddi t1, t1, 32\n\tsw t0, 0(t1)\n'
+            asm+=f'\n\taddi t1, t1, 32\n\tlw t0, 0(t1)\n'
 
         asm+='repl:'
         for i in range(self._sets):
