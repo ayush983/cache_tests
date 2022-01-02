@@ -53,7 +53,7 @@ class uatg_cache_perfcounter_01(IPlugin):
         asm+='\n\tcsrr t2, mhpmcounter17\n\tsub t4,t2,t3\n'
 
         asm+='reinit:'
-        asm+='\n\tli t1, 0\n'
+        asm+='\n\tla t1, rvtest_data\n'
 
         #creating hits
         asm+='hits:'
